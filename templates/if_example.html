@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block content %}
+	{% if (name == "Pedro") %}
+		<h3> Welcome {{name}} </h3>
+	{% else %}
+		<h3> Unknown name entered! {{name}} </h3>
+	{% endif %}
+{% endblock %}

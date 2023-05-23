@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+
+{% block content %}
+	<h2> Geeksforgeeks Available Course </h2>
+	{% for course in courses%}
+	<h4> {{course}} </h4>
+	{% endfor %}
+{% endblock %}
