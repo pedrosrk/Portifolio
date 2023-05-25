@@ -1,37 +1,9 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<main>
-	<section id="skills">
-	  <h2>Skills</h2>
-	  <ul>
-		<li>HTML</li>
-		<li>CSS</li>
-		<li>JavaScript</li>
-		<li>Backend frameworks (e.g., Flask)</li>
-		<li>Database management (e.g., SQL)</li>
-		<li>Version control (e.g., Git)</li>
-		<li>Machine Learning</li>
-		<li>Portuguese native and English fluent</li>
-	  </ul>
-	</section>
-  
-	<section id="projects">
-	  <h2>Projects</h2>
-	  <ul>
-		<li>
-		  <h3>Sentiment Analisis</h3>
-		  <p>Description of Project 1</p>
-		</li>
-		<li>
-		  <h3>Detect Objetct in Image</h3>
-		  <p>Description of Project 2</p>
-		</li>
-		<!-- Add more projects as needed -->
-	  </ul>
-	</section>
-  
+	<h2> Artificial Intelligence Software Engineer </h2>
+	{% for course in courses%}
+	<h4> {{course}} </h4>
+	{% endfor %}
+
 {% endblock %}
-		
-
-
