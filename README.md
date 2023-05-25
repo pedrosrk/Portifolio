@@ -3,8 +3,8 @@
 ## Development Enviroment
 - python -m venv env
 - .\env\Scripts\activate
+- pip install -r requirements
 - pip install flask --upgrade pip
-- pip freeze > requirements.txt
 - python .\__init__.py
 
 ## Git
@@ -13,3 +13,5 @@
 - git commit -m "test"
 - git push
 
+## Update Requirements
+- pip freeze > requirements.txt
