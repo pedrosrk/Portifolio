@@ -5,6 +5,7 @@
 - .\env\Scripts\activate
 - pip install -r requirements
 - pip install flask --upgrade pip
+- replace production for app.run(debug=True)
 - python .\__init__.py
 
 ## Git
@@ -15,3 +16,6 @@
 
 ## Update Requirements
 - pip freeze > requirements.txt
+
+## Production Enviroment
+- Call the production function
