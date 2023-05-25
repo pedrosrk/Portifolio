@@ -10,7 +10,7 @@ def index():
     cur=con.cursor()
     cur.execute("select * from users")
     data=cur.fetchall()
-    return render_template("index.html",datas=data)
+    return render_template("user/index_user.html",datas=data)
 
 @app.route("/add_user",methods=['POST','GET'])
 def add_user():
@@ -32,6 +32,7 @@ def edit_user(uid):
         contact=request.form['contact']
         con=sql.connect("db_web.db")
         cur=con.cursor()
+        print("hello")
         cur.execute("update users set UNAME=?,CONTACT=? where UID=?",(uname,contact,uid))
         con.commit()
         flash('User Updated','success')
