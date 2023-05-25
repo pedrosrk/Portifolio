@@ -4,7 +4,7 @@
 - python -m venv env
 - .\env\Scripts\activate
 - pip install -r requirements
-- pip install flask --upgrade pip
+- .\env\Scripts\python.exe -m pip install --upgrade pip
 - replace production for app.run(debug=True)
 - python .\__init__.py
 
