@@ -5,7 +5,7 @@
 - .\env\Scripts\activate
 - pip install -r requirements
 - .\env\Scripts\python.exe -m pip install --upgrade pip
-- replace production for app.run(debug=True)
+- replace serve(app, host="0.0.0.0", port=5000) for app.run(debug=True)
 - python .\__init__.py
 
 ## Git
@@ -16,6 +16,3 @@
 
 ## Update Requirements
 - pip freeze > requirements.txt
-
-## Production Enviroment
-- Call the production function

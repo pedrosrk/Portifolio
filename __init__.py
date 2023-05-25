@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request, flash
 import sqlite3 as sql
+from waitress import serve
 
 app = Flask(__name__)
 
@@ -85,10 +86,6 @@ def delete_user(uid):
     flash('User Deleted','warning')
     return redirect(url_for("index"))
 
-def production():
-  from waitress import serve
-  serve(app, host="0.0.0.0", port=5000)
-
 if __name__ == "__main__":
     app.secret_key='admin123'
-    production()
+    serve(app, host="0.0.0.0", port=5000)
