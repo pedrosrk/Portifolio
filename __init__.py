@@ -4,26 +4,21 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return render_template('variable_example.html')
+    return render_template('home.html')
 
-@app.route("/default")
-def default():
-	return render_template("layout.html")
+@app.route("/skills")
+def for_loop():
+	list_of_courses = ['Python', 'JavaScript', 'HTML', 'CSS', 'Jira', 'SCRUM', 'Git', 'GitHub', 'SQL']
+	return render_template("for_example.html", courses=list_of_courses)
 
-@app.route("/var")
-def var():
-	user = "Geeksforgeeks"
-	return render_template("variable_example.html", name=user)
+@app.route("/jobs")
+def features():
+    return render_template('jobs.html')
 
 @app.route("/ifelse")
 def ifelse():
-	user = "Pedrim"
+	user = "Pedrim" # Variable example
 	return render_template("if_example.html", name=user)
-
-@app.route("/for_loop")
-def for_loop():
-	list_of_courses = ['Java', 'Python', 'C++', 'MATLAB']
-	return render_template("for_example.html", courses=list_of_courses)
 
 @app.route("/choice/<pick>")
 def choice(pick):
