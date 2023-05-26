@@ -7,7 +7,6 @@
 - .\env\Scripts\python.exe -m pip install --upgrade pip
 - python .\__init__.py
 
-
 ## Development Enviroment
 - python -m venv env
 - .\env\Scripts\activate
