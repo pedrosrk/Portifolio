@@ -2,6 +2,7 @@ from flask import Flask, render_template, redirect, url_for, request, flash
 import sqlite3 as sql
 
 app = Flask(__name__)
+app.secret_key='admin123'
 
 @app.route("/")
 def hello():
@@ -86,5 +87,4 @@ def delete_user(uid):
     return redirect(url_for("index"))
 
 if __name__ == "__main__":
-    app.secret_key='admin123'
     app.run(debug=True)
