@@ -6,11 +6,11 @@ con = sql.connect('db_web.db')
 #Create a Connection
 cur = con.cursor()
 
-#Drop users table if already exsist.
-cur.execute("DROP TABLE IF EXISTS users")
+#Drop msgs table if already exsist.
+cur.execute("DROP TABLE IF EXISTS msgs")
 
-#Create users table  in db_web database
-sql ='''CREATE TABLE "users" (
+#Create msgs table  in db_web database
+sql ='''CREATE TABLE "msgs" (
 	"UID"	INTEGER PRIMARY KEY AUTOINCREMENT,
 	"UNAME"	TEXT,
 	"CONTACT"	TEXT

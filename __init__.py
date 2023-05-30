@@ -17,10 +17,6 @@ def for_loop():
 def features():
     return render_template('webPage/jobs.html')
 
-@app.route("/contact")
-def contact():
-    return render_template('webPage/contact.html')
-
 @app.route("/video")
 def serve_video():
     message = "Video Route"
@@ -41,49 +37,49 @@ def index():
     con=sql.connect("dataBase/db_web.db")
     con.row_factory=sql.Row
     cur=con.cursor()
-    cur.execute("select * from users")
+    cur.execute("select * from msgs")
     data=cur.fetchall()
-    return render_template("user/index_user.html",datas=data)
+    return render_template("blog/index_msg.html",datas=data)
 
-@app.route("/add_user",methods=['POST','GET'])
-def add_user():
+@app.route("/add_msg",methods=['POST','GET'])
+def add_msg():
     if request.method=='POST':
         uname=request.form['uname']
         contact=request.form['contact']
         con=sql.connect("dataBase/db_web.db")
         cur=con.cursor()
-        cur.execute("insert into users(UNAME,CONTACT) values (?,?)",(uname,contact))
+        cur.execute("insert into msgs(UNAME,CONTACT) values (?,?)",(uname,contact))
         con.commit()
-        flash('User Added','success')
+        flash('msg Added','success')
         return redirect(url_for("index"))
-    return render_template("user/add_user.html")
+    return render_template("blog/add_msg.html")
 
-@app.route("/edit_user/<string:uid>",methods=['POST','GET'])
-def edit_user(uid):
+@app.route("/edit_msg/<string:uid>",methods=['POST','GET'])
+def edit_msg(uid):
     if request.method=='POST':
         uname=request.form['uname']
         contact=request.form['contact']
         con=sql.connect("dataBase/db_web.db")
         cur=con.cursor()
         print("hello")
-        cur.execute("update users set UNAME=?,CONTACT=? where UID=?",(uname,contact,uid))
+        cur.execute("update msgs set UNAME=?,CONTACT=? where UID=?",(uname,contact,uid))
         con.commit()
-        flash('User Updated','success')
+        flash('msg Updated','success')
         return redirect(url_for("index"))
     con=sql.connect("dataBase/db_web.db")
     con.row_factory=sql.Row
     cur=con.cursor()
-    cur.execute("select * from users where UID=?",(uid,))
+    cur.execute("select * from msgs where UID=?",(uid,))
     data=cur.fetchone()
-    return render_template("user/edit_user.html",datas=data)
+    return render_template("blog/edit_msg.html",datas=data)
     
-@app.route("/delete_user/<string:uid>",methods=['GET'])
-def delete_user(uid):
+@app.route("/delete_msg/<string:uid>",methods=['GET'])
+def delete_msg(uid):
     con=sql.connect("dataBase/db_web.db")
     cur=con.cursor()
-    cur.execute("delete from users where UID=?",(uid,))
+    cur.execute("delete from msgs where UID=?",(uid,))
     con.commit()
-    flash('User Deleted','warning')
+    flash('Msg Deleted','warning')
     return redirect(url_for("index"))
 
 if __name__ == "__main__":
