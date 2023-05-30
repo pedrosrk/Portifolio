@@ -51,7 +51,7 @@ def add_msg():
         cur.execute("insert into msgs(UNAME,CONTACT) values (?,?)",(uname,contact))
         con.commit()
         flash('msg Added','success')
-        return redirect(url_for("index"))
+        return redirect(url_for("blog"))
     return render_template("blog/add_msg.html")
 
 @app.route("/edit_msg/<string:uid>",methods=['POST','GET'])
@@ -65,7 +65,7 @@ def edit_msg(uid):
         cur.execute("update msgs set UNAME=?,CONTACT=? where UID=?",(uname,contact,uid))
         con.commit()
         flash('msg Updated','success')
-        return redirect(url_for("index"))
+        return redirect(url_for("blog"))
     con=sql.connect("dataBase/db_web.db")
     con.row_factory=sql.Row
     cur=con.cursor()
@@ -80,7 +80,7 @@ def delete_msg(uid):
     cur.execute("delete from msgs where UID=?",(uid,))
     con.commit()
     flash('Msg Deleted','warning')
-    return redirect(url_for("index"))
+    return redirect(url_for("blog"))
 
 @app.route("/contact")
 def contact():
