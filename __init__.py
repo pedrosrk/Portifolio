@@ -32,8 +32,8 @@ def serve_image():
     message = "Image Route"
     return render_template('webPage/image.html', message=message)
 
-@app.route("/index")
-def index():
+@app.route("/blog")
+def blog():
     con=sql.connect("dataBase/db_web.db")
     con.row_factory=sql.Row
     cur=con.cursor()
@@ -81,6 +81,10 @@ def delete_msg(uid):
     con.commit()
     flash('Msg Deleted','warning')
     return redirect(url_for("index"))
+
+@app.route("/contact")
+def contact():
+    return render_template('webPage/contact.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
