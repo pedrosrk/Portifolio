@@ -1,25 +1,13 @@
 {% extends "layout.html" %}
-
 {% block content %}
 	<section id="projects">
-		<h2>Projects</h2>
+		<h2>Features</h2>
 		<ul>
-		<li>
-			<h3>Sentiment Analysis</h3>
-			<p>Description of Project 1</p>
-		</li>
-		<li>
-			<h3>Detect Objetct in Image</h3>
-			<p>Description of Project 2</p>
-		</li>
-		<!-- Add more projects as needed -->
+			<h3><a href="/sentiment">Sentiment Analysis</a></h3>
+		<!-- <h3><a href="/objdetect">Detect Objetct in Image</a></h3> -->
+			<h3><a href="/image"> Try image Example </a></h3>
+			<h3><a href="/audio"> Try audio Example </a></h3>
+			<h3><a href="/video"> Try video Example </a></h3>
 		</ul>
 	</section>
-
-    <h2>Features</h2>
-    <ul>
-        <li><a href="/image"> Try image Example </a></li>
-        <li><a href="/audio"> Try audio Example </a></li>
-        <li><a href="/video"> Try video Example </a></li>
-    </ul>
 {% endblock %}

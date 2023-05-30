@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>{{message}}</h1>
+<section id="sentiment">
+    <form>
+    <label for="message">How is your work day going?</label><br>
+    <textarea id="message" name="message" required></textarea><br>
+    <button type="submit">Send Message</button><br>
+    </form>
+</section>
+{% endblock %}

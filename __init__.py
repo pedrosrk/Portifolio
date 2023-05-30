@@ -88,5 +88,10 @@ def serve_video():
     message = "Video Route"
     return render_template('features/video.html', message=message)
 
+@app.route("/sentiment")
+def sentiment():
+    message = "Sentiment Analysis"
+    return render_template('features/sentiment.html', message=message)
+
 if __name__ == "__main__":
     app.run(debug=True)
