@@ -4,6 +4,7 @@ import sqlite3 as sql
 app = Flask(__name__)
 app.secret_key='admin123'
 
+## Home Page ##
 @app.route("/")
 def hello():
     return render_template('webPage/home.html')
@@ -16,21 +17,6 @@ def for_loop():
 @app.route("/jobs")
 def features():
     return render_template('webPage/jobs.html')
-
-@app.route("/video")
-def serve_video():
-    message = "Video Route"
-    return render_template('webPage/video.html', message=message)
-  
-@app.route("/audio")
-def serve_audio():
-    message = "Audio Route"
-    return render_template('webPage/audio.html', message=message)
-  
-@app.route("/image")
-def serve_image():
-    message = "Image Route"
-    return render_template('webPage/image.html', message=message)
 
 @app.route("/blog")
 def blog():
@@ -85,6 +71,22 @@ def delete_msg(uid):
 @app.route("/contact")
 def contact():
     return render_template('webPage/contact.html')
+
+## Features ##
+@app.route("/image")
+def serve_image():
+    message = "Image Route"
+    return render_template('features/image.html', message=message)
+
+@app.route("/audio")
+def serve_audio():
+    message = "Audio Route"
+    return render_template('features/audio.html', message=message)
+
+@app.route("/video")
+def serve_video():
+    message = "Video Route"
+    return render_template('features/video.html', message=message)
 
 if __name__ == "__main__":
     app.run(debug=True)
