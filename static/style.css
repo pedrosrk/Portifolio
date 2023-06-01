@@ -64,4 +64,9 @@ body, h1, p {
   footer p {
 	font-size: 14px;
   }
+
+  .container {
+	display: flex;
+	align-items: center;
+  }
   
