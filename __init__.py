@@ -11,7 +11,7 @@ def hello():
 
 @app.route("/skills")
 def for_loop():
-	list_of_courses = ['Python', 'JavaScript', 'HTML', 'CSS', 'Jira', 'SCRUM', 'Git', 'GitHub', 'SQL']
+	list_of_courses = ['Python', 'JavaScript', 'HTML', 'CSS', 'Jira', 'SCRUM', 'Git', 'GitHub', 'SQL', 'Mentory']
 	return render_template("webPage/skills.html", courses=list_of_courses)
 
 @app.route("/jobs")
@@ -92,6 +92,11 @@ def serve_video():
 def sentiment():
     message = "Sentiment Analysis"
     return render_template('features/sentiment.html', message=message)
+
+@app.route("/detect")
+def detect():
+    message = "Detect Object"
+    return render_template('features/detectobj.html', message=message)
 
 if __name__ == "__main__":
     app.run(debug=True)
