@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request, flash
 import sqlite3 as sql
+from apps import sentiment as st
 
 app = Flask(__name__)
 app.secret_key='admin123'
@@ -91,7 +92,9 @@ def serve_video():
 @app.route("/sentiment")
 def sentiment():
     message = "Sentiment Analysis"
-    return render_template('features/sentiment.html', message=message)
+    obj1 = st.sentiment()
+    result = obj1.sentiment_scores_compound()
+    return render_template('features/sentiment.html', message=message, result=result)
 
 @app.route("/detect")
 def detect():
