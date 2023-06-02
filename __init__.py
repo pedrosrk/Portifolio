@@ -91,6 +91,8 @@ def serve_video():
 
 @app.route("/sentiment", methods=['GET', 'POST'])
 def sentiment():
+    import nltk
+    nltk.download()
     if request.method == 'GET':
         message = "Sentiment Analysis"
         obj1 = st.sentiment()
