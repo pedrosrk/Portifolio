@@ -89,12 +89,18 @@ def serve_video():
     message = "Video Route"
     return render_template('features/video.html', message=message)
 
-@app.route("/sentiment")
+@app.route("/sentiment", methods=['GET', 'POST'])
 def sentiment():
-    message = "Sentiment Analysis"
-    obj1 = st.sentiment()
-    result = obj1.sentiment_scores_compound()
-    return render_template('features/sentiment.html', message=message, result=result)
+    if request.method == 'GET':
+        message = "Sentiment Analysis"
+        obj1 = st.sentiment()
+        result = obj1.sentiment_scores_compound()
+        return render_template('features/sentiment.html', message=message, result=result)
+    else:
+        message = "Sentiment Analysis"
+        obj1 = st.sentiment(request.form['message'])
+        result = obj1.sentiment_scores_compound()
+        return render_template('features/sentiment.html', message=message, result=result)
 
 @app.route("/detect")
 def detect():

@@ -1,5 +1,4 @@
 /* ... previous CSS styles ... */
-
 nav {
 	margin-top: 10px;
   }
@@ -68,5 +67,9 @@ body, h1, p {
   .container {
 	display: flex;
 	align-items: center;
+  }
+
+  .sentiment{
+	text-align: center;
   }
   

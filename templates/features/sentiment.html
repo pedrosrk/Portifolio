@@ -1,9 +1,20 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<h1>{{message}}</h1>
-<section id="sentiment">
-    <p>From a text identify the personal feeling.</p>
-    <p>From a default text your feeling is {{result}}.</p>
-</section>
+<p>
+    <b>Context: </b>After a day of activities at a technology company, workers respond about their day at work.<br>
+    <b>Method: </b>This method uses the VADER (Valence Aware Dictionary and sEntiment Reasoner), through nltk python library. 
+    It is a pretrained sentiment analyzer used in social media. It is more efficient in a small 
+    sentences.<br>
+    <b>Result: </b>The answer appears in front of the word "FEELING" and can range from -1 (worst) to +1 (best) feeling level. The default message is 'I am happy'.<br>
+</p>
+<div class="sentiment">
+    <h1>{{message}}</h1>
+    <form action="\sentiment" method="POST">
+        <label>How was your last work period?</label><br>
+        <textarea id="message" name="message" rows="4" cols="60"placeholder="I am happy"></textarea><br>
+        <button>Sending</button><br>
+        <p><b>FELLING: {{result}}</b></p>
+    </form>
+</div>
 {% endblock %}
