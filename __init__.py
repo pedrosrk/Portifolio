@@ -1,4 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, request, flash
+import nltk
 import sqlite3 as sql
 from apps import sentiment as st
 
@@ -91,8 +92,7 @@ def serve_video():
 
 @app.route("/sentiment", methods=['GET', 'POST'])
 def sentiment():
-    import nltk
-    nltk.download()
+    nltk.download('vader_lexicon')
     if request.method == 'GET':
         message = "Sentiment Analysis"
         obj1 = st.sentiment()
