@@ -12,7 +12,7 @@ def hello():
 
 @app.route("/skills")
 def for_loop():
-	list_of_courses = ['Python', 'JavaScript', 'HTML', 'CSS', 'Jira', 'SCRUM', 'Git', 'GitHub', 'SQL', 'Mentory']
+	list_of_courses = ['Python', 'JavaScript', 'HTML', 'CSS', 'Jira', 'SCRUM', 'Git', 'GitHub', 'SQL', 'Agile Software Development']
 	return render_template("webPage/skills.html", courses=list_of_courses)
 
 @app.route("/jobs")
