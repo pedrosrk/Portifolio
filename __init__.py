@@ -2,7 +2,6 @@ from flask import Flask, render_template, redirect, url_for, request, flash
 import nltk, os
 import sqlite3 as sql
 from apps import sentiment as st
-from apps import detect as dtc
 
 app = Flask(__name__)
 app.secret_key='admin123'
@@ -93,8 +92,6 @@ def serve_video():
 
 @app.route("/sentiment", methods=['GET', 'POST'])
 def sentiment():
-    current_dir = os.getcwd()
-    print(current_dir)
     nltk.download('vader_lexicon')
     if request.method == 'GET':
         message = "Sentiment Analysis"
@@ -109,13 +106,10 @@ def sentiment():
 
 @app.route("/detect", methods=['GET', 'POST'])
 def detect():
-    current_dir = os.getcwd()
-    print(current_dir)
     if request.method == 'POST':
         image_file = request.files['image']
         if image_file:
-            det = dtc.ObjDetect(image_file.filename)
-            det.save_picture()
+            x = "pass"
         return render_template('index.html', image_url="static/output.jpg")
     
     return render_template('features/detectobj.html', image_url="static/output.jpg")
