@@ -1,8 +1,10 @@
-import cv2
+import cv2, os
 
 class ObjDetect:
     def __init__(self, image):
-        self.picture = cv2.imread('../static/' + image)
+        current_dir = os.getcwd()
+        img = cv2.imread(os.path.join(current_dir, 'static', 'assets', 'agilim.png'))
+        self.picture = img
     
     def get_picture(self):
         return self.picture

@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, request, flash
 import nltk, os
 import sqlite3 as sql
-from apps import sentiment as st
+from apps import sentiment, detect
 
 app = Flask(__name__)
 app.secret_key='admin123'
@@ -91,28 +91,30 @@ def serve_video():
     return render_template('features/video.html', message=message)
 
 @app.route("/sentiment", methods=['GET', 'POST'])
-def sentiment():
+def work_sentiment():
     nltk.download('vader_lexicon')
     if request.method == 'GET':
         message = "Sentiment Analysis"
-        obj1 = st.sentiment()
+        obj1 = sentiment.Emotion()
         result = obj1.sentiment_scores_compound()
         return render_template('features/sentiment.html', message=message, result=result)
     else:
         message = "Sentiment Analysis"
-        obj1 = st.sentiment(request.form['message'])
+        obj1 = sentiment.Emotion(request.form['message'])
         result = obj1.sentiment_scores_compound()
         return render_template('features/sentiment.html', message=message, result=result)
 
 @app.route("/detect", methods=['GET', 'POST'])
-def detect():
+def detect_object():
     if request.method == 'POST':
         image_file = request.files['image']
         if image_file:
-            x = "pass"
-        return render_template('index.html', image_url="static/output.jpg")
+            x = 'pass'
+            #det = detect.ObjDetect(image_file.filename)
+            #print(det) 
+        return render_template('features/detectobj.html', image_url="static/assets/output.jpg")
     
-    return render_template('features/detectobj.html', image_url="static/output.jpg")
+    return render_template('features/detectobj.html', image_url="static/assets/agilim.png")
 
 if __name__ == "__main__":
     app.run(debug=True)

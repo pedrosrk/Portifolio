@@ -3,7 +3,7 @@ from nltk.sentiment import SentimentIntensityAnalyzer
 A pretrained sentiment analyzer used in social media. It is more efficient in a small 
 sentences. '''
 
-class sentiment():
+class Emotion():
     def __init__(self, text=None):
         ''' Default constructor with a text atribute or 'I am happy' as default '''
         if text is None:

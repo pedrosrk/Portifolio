@@ -1,26 +1,16 @@
-import os, cv2
+import os, cv2, unittest
 
-# Get the current working directory
-current_dir = os.getcwd()
+class TestImageDisplay(unittest.TestCase):
+    def test_read_image(self):
+        current_dir = os.getcwd()
+        #parent_directory = os.path.dirname(current_dir)
+        img = cv2.imread(os.path.join(current_dir, 'static', 'assets', 'agilim.png'))
+        self.assertIsNotNone(img)
+        expected_height = 515
+        expected_width = 511
+        actual_height, actual_width, _ = img.shape
+        self.assertEqual(expected_height, actual_height)
+        self.assertEqual(expected_width, actual_width)
 
-# Get the parent directory
-parent_directory = os.path.dirname(current_dir)
-
-subdirectory = 'static'
-
-# Get the app directory
-directory = os.path.join(parent_directory, subdirectory)
-
-# Print the parent directory
-print(directory)
-
-# Get the list of files and directories within the specified directory
-contents = os.listdir(directory)
-
-# Print the names of files and directories
-for item in contents:
-    print(item)
-
-img = cv2.imread(os.path.join(parent_directory, subdirectory, 'agilim.png'))
-cv2.imshow("image", img) 
-cv2.waitKey()
+if __name__ == '__main__':
+    unittest.main()
