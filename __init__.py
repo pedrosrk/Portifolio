@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, request, flash
-import nltk
+import nltk, os
 import sqlite3 as sql
 from apps import sentiment
 
@@ -109,7 +109,9 @@ def work_sentiment():
 def detect_object():
     if request.method == 'POST':
         image_file = request.files['image']
+        current_dir =  os.path.dirname(os.path.realpath(__file__))
         print(image_file.filename)
+        print(current_dir)
         '''if image_file:
             current_dir =  os.path.dirname(os.path.realpath(__file__))
             image_path = os.path.join(current_dir, 'static', 'assets', image_file.filename)
