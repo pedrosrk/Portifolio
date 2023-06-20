@@ -109,7 +109,8 @@ def work_sentiment():
 def detect_object():
     if request.method == 'POST':
         image_file = request.files['image']
-        if image_file:
+        print(image_file.filename)
+        '''if image_file:
             current_dir =  os.path.dirname(os.path.realpath(__file__))
             image_path = os.path.join(current_dir, 'static', 'assets', image_file.filename)
             image_file.save(image_path)
@@ -119,7 +120,7 @@ def detect_object():
             cv2.imwrite(os.path.join(current_dir, 'static', 'assets', new_image_path), image)
             det = detect.ObjDetect(new_image_path)
             det.save_detect_picture()
-            os.remove(image_path)
+            os.remove(image_path)'''
         return render_template('features/detectobj.html', image_url="static/assets/output.jpg")
     return render_template('features/detectobj.html', image_url="static/assets/agilim.png")
 
