@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, request, flash
-import nltk, os
+import nltk, os, cv2
 import sqlite3 as sql
-from apps import sentiment
+from apps import sentiment, detect
 
 app = Flask(__name__)
 app.secret_key='admin123'
@@ -113,13 +113,13 @@ def detect_object():
             current_dir =  os.path.dirname(os.path.realpath(__file__))
             image_path = os.path.join(current_dir, 'static', 'assets', image_file.filename)
             image_file.save(image_path)
-            #image = cv2.imread(image_path)
-            '''_, extension = os.path.splitext(image_path)
+            image = cv2.imread(image_path)
+            _, extension = os.path.splitext(image_path)
             new_image_path = 'input' + extension
             cv2.imwrite(os.path.join(current_dir, 'static', 'assets', new_image_path), image)
             det = detect.ObjDetect(new_image_path)
             det.save_detect_picture()
-            os.remove(image_path)'''
+            os.remove(image_path)
         return render_template('features/detectobj.html', image_url="static/assets/output.jpg")
     return render_template('features/detectobj.html', image_url="static/assets/agilim.png")
 
