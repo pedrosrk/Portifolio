@@ -113,7 +113,7 @@ def detect_object():
             current_dir =  os.path.dirname(os.path.realpath(__file__))
             image_path = os.path.join(current_dir, 'static', 'assets', image_file.filename)
             image_file.save(image_path)
-            image = cv2.imread(image_path)
+            #image = cv2.imread(image_path)
             '''_, extension = os.path.splitext(image_path)
             new_image_path = 'input' + extension
             cv2.imwrite(os.path.join(current_dir, 'static', 'assets', new_image_path), image)
