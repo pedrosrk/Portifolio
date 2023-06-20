@@ -104,6 +104,7 @@ def work_sentiment():
         result = obj1.sentiment_scores_compound()
         return render_template('features/sentiment.html', message=message, result=result)
 
+#detect object
 @app.route("/detect", methods=['GET', 'POST'])
 def detect_object():
     if request.method == 'POST':
