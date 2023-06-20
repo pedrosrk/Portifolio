@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, request, flash
-import nltk, os, cv2
+import nltk
 import sqlite3 as sql
-from apps import sentiment, detect
+from apps import sentiment
 
 app = Flask(__name__)
 app.secret_key='admin123'
