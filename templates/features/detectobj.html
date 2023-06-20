@@ -1,7 +1,12 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<h1>{{message}}</h1>
+<p>
+    <b>Context: </b>A large company needs to map its brand presence on social media through image analysis.<br>
+    <b>Method: </b>Detect objects in a digital image. Using a YOLO network, highlight objects with an accuracy above 50%.<br>
+    <b>Result: </b>Select an image and the result will appear with bounding boxes.<br>
+</p>
+
 <form method="POST" enctype="multipart/form-data">
     <input type="file" name="image">
     <br>
