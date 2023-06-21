@@ -121,7 +121,7 @@ def detect_object():
             det.save_detect_picture()
             os.remove(image_path)
         return render_template('features/detectobj.html', image_url="static/assets/output.jpg")
-    return render_template('features/detectobj.html', image_url="static/assets/agilim.png")
+    return render_template('features/detectobj.html', image_url="static/assets/agilim.PNG")
 
 if __name__ == "__main__":
     app.run(debug=True)
